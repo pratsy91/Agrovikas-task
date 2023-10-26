@@ -8,20 +8,34 @@ const getProducts = asyncHandler(async (req, res) => {
   res.status(200).json(products);
 });
 
-const updateProduct = asyncHandler(async (req, res) => {
-  const { name, price, image, category } = req.body;
+const createProduct = asyncHandler(async (req, res) => {
+  const { name, price, image, category, discount, rating, id } = req.body;
+  const product = new Product({
+    name,
+    price,
+    image,
+    category,
+    discount,
+    rating,
+    id,
+  });
 
-  const product = await Product.findById(req.params.id);
+  const createdProduct = product.save();
+  res.status(201).json(createdProduct);
+});
+
+const updateProduct = asyncHandler(async (req, res) => {
+  const { name, price, image, category, discount, rating, id } = req.body;
+
+  const product = await Product.findById(id);
 
   if (product) {
     product.name = name;
     product.price = price;
-    product.description = description;
+    product.rating = rating;
     product.image = image;
-    product.brand = brand;
+    product.discount = discount;
     product.category = category;
-    product.countInStock = countInStock;
-
     const updatedProduct = await product.save();
     res.json(updatedProduct);
   } else {
@@ -32,4 +46,6 @@ const updateProduct = asyncHandler(async (req, res) => {
 
 module.exports = {
   getProducts,
+  createProduct,
+  updateProduct,
 };
