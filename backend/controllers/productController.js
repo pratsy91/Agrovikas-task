@@ -9,7 +9,7 @@ const getProducts = asyncHandler(async (req, res) => {
 });
 
 const createProduct = asyncHandler(async (req, res) => {
-  const { name, price, image, category, discount, rating, id } = req.body;
+  const { name, price, image, category, discount, rating } = req.body;
   const product = new Product({
     name,
     price,
@@ -17,7 +17,6 @@ const createProduct = asyncHandler(async (req, res) => {
     category,
     discount,
     rating,
-    id,
   });
 
   const createdProduct = product.save();

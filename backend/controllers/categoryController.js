@@ -31,25 +31,18 @@ const updateCategory = asyncHandler(async (req, res) => {
   }
 });
 
-// const createProduct = asyncHandler(async (req, res) => {
-//   const product = new Product({
-//     name: "Sample name",
-//     price: 0,
-//     user: req.user._id,
-//     image: "/images/sample.jpg",
-//     brand: "Sample brand",
-//     category: "Sample category",
-//     countInStock: 0,
-//     numReviews: 0,
-//     description: "Sample description",
-//   });
-
-//   const createdProduct = await product.save();
-//   res.status(201).json(createdProduct);
-// });
+const getCategoryById = asyncHandler(async (req, res) => {
+  const category = await Category.findById(req.body.id);
+  if (category) {
+    return res.json(category);
+  }
+  res.status(404);
+  throw new Error("Resource not found");
+});
 
 module.exports = {
   getCategory,
   createCategory,
   updateCategory,
+  getCategoryById,
 };
