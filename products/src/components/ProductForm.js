@@ -53,6 +53,7 @@ function ProductForm({ edit, product, setEdit, setCreate, categories }) {
           name="name"
           ref={nameRef}
           defaultValue={edit ? product.name : ""}
+          required
         />
         <label id="image">Enter ImageUrl</label>
         <input
@@ -60,6 +61,7 @@ function ProductForm({ edit, product, setEdit, setCreate, categories }) {
           name="image"
           ref={imageRef}
           defaultValue={edit ? product.image : ""}
+          required
         />
         <label id="category">Select Category</label>
         <select
@@ -81,6 +83,7 @@ function ProductForm({ edit, product, setEdit, setCreate, categories }) {
           min="1"
           max="5"
           defaultValue={edit ? product.rating : "1"}
+          required
         />
         <label id="price">Enter price</label>
         <input
@@ -88,6 +91,7 @@ function ProductForm({ edit, product, setEdit, setCreate, categories }) {
           name="price"
           ref={priceRef}
           defaultValue={edit ? product.price : "0"}
+          required
         />
         <label id="discount">Enter discount</label>
         <input
@@ -95,6 +99,7 @@ function ProductForm({ edit, product, setEdit, setCreate, categories }) {
           name="discount"
           ref={disRef}
           defaultValue={edit ? product.discount : "0"}
+          required
         />
         <div className="button">
           <button type="submit">Submit</button>

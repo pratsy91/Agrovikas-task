@@ -40,6 +40,7 @@ function CategoryForm({
           name="category"
           ref={nameRef}
           defaultValue={category ? category.name : ""}
+          required
         />
         <div className="button">
           <button type="submit">Submit</button>
