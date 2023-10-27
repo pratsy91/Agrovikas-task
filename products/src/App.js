@@ -117,7 +117,7 @@ function App() {
                           <span>{product.name}</span>
                           <span>rating-{product.rating}/5</span>
                           <span>&#8377;{product.price}</span>
-                          <span>{product.discount}%-discount</span>
+                          <span>discount-{product.discount}%</span>
                           <span
                             className="icon"
                             onClick={() => editProdHandler(product)}
