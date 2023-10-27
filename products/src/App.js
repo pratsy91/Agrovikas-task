@@ -22,22 +22,34 @@ function App() {
 
   const createHandler = () => {
     setCreatecat((prev) => !prev);
+    setCreatepro(false);
+    setEditpro(false);
+    setEditcat(false);
   };
 
   const createproHandler = () => {
     setCreatepro((prev) => !prev);
+    setCreatecat(false);
+    setEditpro(false);
+    setEditcat(false);
   };
 
   const catHandler = (item) => {
     setSelect(null);
     setCategory(item);
     setEditcat((prev) => !prev);
+    setCreatecat(false);
+    setEditpro(false);
+    setCreatepro(false);
   };
 
   const editProdHandler = (item) => {
     setSelect(null);
     setProduct(item);
     setEditpro((prev) => !prev);
+    setCreatecat(false);
+    setCreatepro(false);
+    setEditcat(false);
   };
 
   const getProductsData = async (id) => {
