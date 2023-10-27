@@ -1,5 +1,5 @@
 .container {
-  width: 40rem;
+  width: 20rem;
   border-radius: 10px;
   padding: 20px 10px;
   background-color: #f0ebe1;
@@ -25,6 +25,20 @@
   }
 }
 
+.loading {
+  text-align: center;
+  font-size: large;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+}
+.cancel {
+  background-color: red;
+  cursor: pointer;
+}
+
 form {
   text-align: center;
   font-size: medium;
@@ -35,13 +49,19 @@ label {
   margin-bottom: 10px;
 }
 
-input {
+input,
+select {
   padding: 5px 10px;
   margin-bottom: 10px;
   outline: none;
+  width: 15rem;
 }
 
 button {
   margin-top: 20px;
-  display: block;
+  padding: 5px 10px;
+  background-color: #85622b;
+  border: none;
+  color: azure;
+  border-radius: 10px;
 }

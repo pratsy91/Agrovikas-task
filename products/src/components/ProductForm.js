@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import "./product.css";
 import { createProduct, updateProduct } from "../apicalls/productsApi";
 
 function ProductForm({ edit, product, setEdit, setCreate, categories }) {
@@ -8,6 +9,15 @@ function ProductForm({ edit, product, setEdit, setCreate, categories }) {
   const ratRef = useRef();
   const priceRef = useRef();
   const disRef = useRef();
+
+  const cancelHandler = () => {
+    if (edit) {
+      setEdit(false);
+      return;
+    }
+
+    setCreate(false);
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -86,7 +96,12 @@ function ProductForm({ edit, product, setEdit, setCreate, categories }) {
           ref={disRef}
           defaultValue={edit ? product.discount : "0"}
         />
-        <button type="submit">Submit</button>
+        <div className="button">
+          <button type="submit">Submit</button>
+          <button type="button" className="cancel " onClick={cancelHandler}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

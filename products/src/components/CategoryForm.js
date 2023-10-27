@@ -1,9 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  createCategory,
-  getCategory,
-  updateCategory,
-} from "../apicalls/categoryApi";
+import React, { useRef } from "react";
+import { createCategory, updateCategory } from "../apicalls/categoryApi";
 import "./category.css";
 
 function CategoryForm({
@@ -14,6 +10,14 @@ function CategoryForm({
   setCreatecat,
 }) {
   const nameRef = useRef();
+
+  const cancelHandler = () => {
+    if (editcat) {
+      setEditcat(false);
+      return;
+    }
+    setCreatecat(false);
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -37,7 +41,12 @@ function CategoryForm({
           ref={nameRef}
           defaultValue={category ? category.name : ""}
         />
-        <button type="submit">Submit</button>
+        <div className="button">
+          <button type="submit">Submit</button>
+          <button type="button" className="cancel" onClick={cancelHandler}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

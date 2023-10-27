@@ -67,8 +67,9 @@ function App() {
     getData();
   }, [editcat, createcat, editpro, createpro]);
   return (
-    <>
+    <div className="App">
       <div className="wrapper">
+        <h1 className="heading">Choose a Category to Explore</h1>
         <div className="accordion">
           {categories.length > 0 ? (
             categories.map((item, i) => (
@@ -98,6 +99,7 @@ function App() {
                               src={product.image}
                               height="100px"
                               width="100px"
+                              alt={product.name}
                             />
                           </span>
                           <span>{product.name}</span>
@@ -113,7 +115,7 @@ function App() {
                         </li>
                       ))
                     ) : (
-                      <div>Loading...</div>
+                      <div className="loading">Loading...</div>
                     )}
                   </ul>
                 </div>
@@ -158,7 +160,7 @@ function App() {
           />
         ) : null}
       </div>
-    </>
+    </div>
   );
 }
 

@@ -30,6 +30,7 @@ export const updateProduct = async (
       price,
       id,
     });
+    return response.data;
   } catch (error) {
     throw error;
   }
@@ -52,6 +53,7 @@ export const createProduct = async (
       category,
       price,
     });
+    return response.data;
   } catch (error) {
     throw error;
   }
